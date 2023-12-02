@@ -1,0 +1,25 @@
+name: Main pipeline
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
+
+jobs:
+  main:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: echo "Install dependencies done"
+      - name: Check style
+        run: echo "Check style done"
+      - name: Build      
+        run: echo "Build done"
+      - name: Test
+        run: echo "Test done"
+      - name: Deploy
+        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip-deploy') }}
+        run: echo "Deploy done"
