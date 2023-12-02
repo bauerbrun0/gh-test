@@ -20,6 +20,6 @@ jobs:
         run: echo "Build done"
       - name: Test
         run: echo "Test done"
-      - name: Deploy
-        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip-deploy') }}
+      - name: Publish to Docker Hub
+        if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip-publish') }}
         run: echo "Deploy done"
