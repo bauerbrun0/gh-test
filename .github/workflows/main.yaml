@@ -54,4 +54,4 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: bauerbrun0/gh-test:${{ steps.bump_version.outputs.new_tag }}
+          tags: bauerbrun0/gh-test:${{ steps.bump_version.outputs.new_tag }},bauerbrun0/gh-test:latest
